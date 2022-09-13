@@ -1,4 +1,4 @@
-Voornaam;Naam;Affiliatie;E-mail;Website;MijnKolom;
+Voornaam;Naam;Affiliatie;E-mail;Website;DCAT-AP;
 AuteurVoornaam;AuteurNaam;AuteurAffiliatie;auteurvoornaam.auteurnaam@auteurdomein;https://auteurwebsiteurl;A;
-EditorVoornaam;EditorNaam;EditorAffiliatie;editorvoornaam.editornaam@editordomein;https://editorwebsiteurl;E;
+Bert;Van Nuffelen;EditorAffiliatie;bert.van.nuffelen@tenforce.com;;E;
 MedewerkerVoornaam;MedewerkerNaam;MedewerkerAffiliatie;medewerkervoornaam.medewerkernaam@medewerkerdomein;https://medewerkerwebsiteurl;C;
