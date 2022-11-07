@@ -318,9 +318,9 @@
         </div>
     </div>
     <div class="region region--no-space-top">
-        <a href="https://tenforce.github.io/data.ai-proficiant.eu-generated{{ documentroot }}/html/overview.jpg"
+        <a href="{{ documentroot }}/html/overview.jpg"
            target="_blank">
-            <img src="https://tenforce.github.io/data.ai-proficiant.eu-generated{{ documentroot }}/html/overview.jpg"/>
+            <img src="{{ documentroot }}/html/overview.jpg"/>
         </a>
     </div>
 </section>
@@ -637,7 +637,7 @@
         #} (non normative)
         {% block jsonld %}
             <p>
-                A reusable JSON-LD context definition for this application profile is retrievable at: <a href="https://raw.githubusercontent.com/tenforce/data.ai-proficiant.eu-generated/master{{ documentroot }}/context/{{ metadata.filename }}.jsonld"
+                A reusable JSON-LD context definition for this application profile is retrievable at: <a href="{{ documentroot }}/context/{{ metadata.filename }}.jsonld"
     target="_blank">{{ documentroot }}/context/{{ metadata.filename }}.jsonld</a>
             </p>
         {% endblock %}
@@ -655,7 +655,7 @@
         #} (non normative)
         {% block shacl %}
             <p>
-                A reusable SHACL template for this application profile is retrievable at: <a href="https://raw.githubusercontent.com/tenforce/data.ai-proficiant.eu-generated/master{{ documentroot }}/shacl/{{ metadata.filename }}-SHACL.ttl"
+                A reusable SHACL template for this application profile is retrievable at: <a href="{{ documentroot }}/shacl/{{ metadata.filename }}-SHACL.ttl"
     target="_blank">{{ documentroot }}/shacl/{{ metadata.filename }}-SHACL.ttl</a>
             </p>
         {% endblock %}
