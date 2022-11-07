@@ -346,14 +346,14 @@
             </h3>
             <dl>
                 <dt>
-                    Description
+                    Definition
                 </dt>
                 <dd>
                     {{ entity.description[language] }}
                 </dd>
                 {% if entity.usage[language] %}
                     <dt>
-                        Usage
+                        Usage Note
                     </dt>
                     <dd>
                         {{ entity.usage[language] | safe }}
@@ -502,14 +502,14 @@
                 <div class="region region--no-space-top">
                     <dl>
                         <dt>
-                            Beschrijving
+                            Definition
                         </dt>
                         <dd>
                             {{ entity.description[language] }}
                         </dd>
                         {% if entity.usage[language] %}
                             <dt>
-                                Gebruik
+                                Usage Note
                             </dt>
                             <dd>
                                 {{ entity.usage[language] | safe }}
@@ -517,7 +517,7 @@
                         {% endif %}
                         {% if ((entity.parents | length) > 0 ) %}
                             <dt>
-                                Subklasse van
+                                Subclass of
                                 <dt>
                                     <dd>
                                         {%- for parent in entity['parents'] %} <a href="{{ parent.scoped_uri }}">{{ parent.label }}</a>
@@ -526,17 +526,17 @@
                                 </dd>
                             {% endif %}
                             <dt>
-                                Eigenschappen
+                                Properties
                             </dt>
                             {% if ((entity.properties | length) > 0 ) %}
                                 <dd>
-                                    Voor dit datatype zijn de volgende eigenschappen gedefinieerd: {%- for prop in entity['properties'] | sort(attribute=sortattr) %} <a href="#{{ (entity.name ~ ':' ~ prop.name) | urlencode }}">{{ prop.label[language] }}</a>
+			            For this datatype are the following properties defined: {%- for prop in entity['properties'] | sort(attribute=sortattr) %} <a href="#{{ (entity.name ~ ':' ~ prop.name) | urlencode }}">{{ prop.label[language] }}</a>
                                     {% if not loop.last %},{% endif %}
                                 {%- endfor %}.
                             </dd>
                         {% else %}
                             <dd>
-                                Voor dit datatype zijn geen eigenschappen gedefinieerd.
+                                No properties have been defined for this datatype.
                             </dd>
                         {% endif %}
                     </dl>
