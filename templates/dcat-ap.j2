@@ -1,4 +1,5 @@
 {% extends "semic-ap_en.j2" %}
+{% extends "dcatap-legal.j2" %}
 
 {% block introduction %}
 <h3>Context</h3>
@@ -15,7 +16,6 @@ The Application Profile is intended to facilitate data exchange and therefore th
 The DCAT Application Profile defined in this document is based on the specification of the Data Catalog Vocabulary (DCAT) of 16 January 2014 , and the Data Catalog Vocabulary (DCAT) - Version 2, W3C Recommendation 04 February 2020 .
 {% endblock %}
 
-Copyright © 2021 European Union. All material in this repository is published under the license CC-By 4.0, unless explicitly otherwise mentioned.
 
 
 {% block terminology %}
@@ -68,3 +68,9 @@ voaf: http://purl.org/vocommons/voaf#
 
 {% block overview-intro %}
 {% endblock %}
+
+{% block usages %} 
+  {% block legal %}
+  {% endblock %}
+{% endblock %}
+

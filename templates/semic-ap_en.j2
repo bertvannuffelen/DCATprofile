@@ -222,13 +222,15 @@
     </h2>
     {% block license %}
         <p>
+	<!--
             <span rel="dct:type"
                   property="dct:title"
                   href="http://purl.org/dc/dcmitype/Text"
-                  xmlns:dct="http://purl.org/dc/terms/">This specification </span> of <a rel="cc:attributionURL"
-    property="cc:attributionName"
-    href="ORGANISATION"
-    xmlns:cc="http://creativecommons.org/ns#">ORGANISATION </a> is published under <a href="{{ metadata.license }}" rel="license">"CC0"</a>.
+                  xmlns:dct="http://purl.org/dc/terms/">
+		  This specification </span> of <a rel="cc:attributionURL" property="cc:attributionName" href="ORGANISATION" xmlns:cc="http://creativecommons.org/ns#">ORGANISATION </a> 
+	          is published under <a href="{{ metadata.license }}" rel="license">"CC0"</a>.
+	-->
+             Copyright © 2021 European Union. All material in this repository is published under the license CC-By 4.0, unless explicitly otherwise mentioned.
         </p>
     {% endblock %}
 </section>
@@ -624,6 +626,10 @@
         {% endblock %}
     </div>
 </section>
+
+{% block usages %}
+{% endblock %} 
+
 
 
 <section class="appendix">
