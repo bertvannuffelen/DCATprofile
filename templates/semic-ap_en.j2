@@ -191,7 +191,8 @@
 </div>
 </div>
 </section>
-<section>
+
+<section id="specintro">
     <h2>
         Introduction
     </h2>
@@ -201,12 +202,14 @@
         </p>
     {% endblock %}
 </section>
+
 <section id="abstract">
     {% block summary %}
         {% if metadata.description %}{{ metadata.description[language] }}{% endif %}
     {% endblock %}
 </section>
-<section id="sotd">
+
+<section id="specstatus">
     {% block status %}
         <p>
             This application profile has the status <a href="{{ metadata.status }}">{{ metadata.statuslabel }}</a> publised at {{ metadata.issued }}.
@@ -216,7 +219,10 @@
         </p>
     {% endblock %}
 </section>
-<section>
+
+
+
+<section id="speclicence">
     <h2>
         License
     </h2>
@@ -234,6 +240,7 @@
         </p>
     {% endblock %}
 </section>
+
 <section>
     <h2>
         Conformance
@@ -244,7 +251,19 @@
         </p>
     {% endblock %}
 </section>
-<section>
+
+{% block terminology%}
+<section id="specterminology">
+    <h2>
+        Terminology
+    </h2>
+        <p>
+            section on terminology usage
+        </p>
+</section>
+{% endblock %}
+
+<section id="specoverview">
     <h2>Overview</h2>
     {% block overview-intro %}
     {% endblock %}
@@ -279,6 +298,8 @@
         </a>
     </div>
 </section>
+
+
 <section>
     <h2>
         Entities
@@ -628,6 +649,9 @@
 </section>
 
 {% block usages %}
+<section class="informative">
+	<h2>Usage Guidelines</h2>
+</section>
 {% endblock %} 
 
 
