@@ -14,7 +14,7 @@
 	    {% if editors %}
 		{% for editor in editors %}
 		   {
-		    name: "{{ editor.first_name }} {G{ editor.last_name}}",
+		    name: "{{ editor.first_name }} {{ editor.last_name}}",
 		      {% if editor.affiliation.website %}
 		    companyURL: "{{ editor.affiliation.website }}",
 		      {% endif %}
