@@ -15,3 +15,56 @@ The Application Profile is intended to facilitate data exchange and therefore th
 The DCAT Application Profile defined in this document is based on the specification of the Data Catalog Vocabulary (DCAT) of 16 January 2014 , and the Data Catalog Vocabulary (DCAT) - Version 2, W3C Recommendation 04 February 2020 .
 {% endblock %}
 
+Copyright © 2021 European Union. All material in this repository is published under the license CC-By 4.0, unless explicitly otherwise mentioned.
+
+
+{% block terminology %}
+An Application Profile is a specification that re-uses terms from one or more base standards, adding more specificity by identifying mandatory, recommended and optional elements to be used for a particular application, as well as recommendations for controlled vocabularies to be used.
+A Dataset is a collection of data, published or curated by a single source, and available for access or download in one or more formats.
+A Data Portal is a Web-based system that contains a data catalogue with descriptions of datasets and provides services enabling discovery and re-use of the datasets.
+In the following sections, classes and properties are grouped under headings ‘mandatory’, ‘recommended’ and ‘optional’. These terms have the following meaning.
+•	Mandatory property: a receiver MUST be able to process the information for that property; a sender MUST provide the information for that property.
+•	Recommended property: a receiver MUST be able to process the information for that property; a sender SHOULD provide the information for that property if it is available.
+•	Optional property: a receiver MUST be able to process the information for that property; a sender MAY provide the information for that property but is not obliged to do so.
+•	Deprecated property: a receiver SHOULD be able to process information about instances of that property; a sender SHOULD NOT provide the information about instances of that property.
+The meaning of the terms MUST, MUST NOT, SHOULD and MAY in this section and in the following sections are as defined in RFC 2119 .
+In the given context, the term "processing" means that receivers must accept incoming data and transparently provide these data to applications and services. It does neither imply nor prescribe what applications and services finally do with the data (parse, convert, store, make searchable, display to users, etc.).
+
+{% endblock %}
+
+{% block namespaces %}
+
+<p class="ednote" title="To Be investigated">
+The following prefixes should be checked for their use.
+schema: http://schema.org/
+vann: http://purl.org/vocab/vann/
+voaf: http://purl.org/vocommons/voaf#
+</p>
+
+        <table id="table-namespaces" class="simple">
+            <thead><tr><th>Prefix</th><th>Namespace IRI</th></tr></thead>
+            <tbody>
+            <tr><td><code>adms</code></td><td><code>http://www.w3.org/ns/adms#</code></td></tr>
+            <tr><td><code>dcat</code></td><td><code>http://www.w3.org/ns/dcat#</code></td></tr>
+            <tr><td><code>dcatap</code></td><td><code>http://data.europa.eu/r5r/</code></td></tr>
+            <tr><td><code>dct</code></td><td><code>http://purl.org/dc/terms/</code></td></tr>
+            <tr><td><code>dctype</code></td><td><code>http://purl.org/dc/dcmitype/</code></td></tr>
+            <tr><td><code>foaf</code></td><td><code>http://xmlns.com/foaf/0.1/</code></td></tr>
+            <tr><td><code>locn</code></td><td><code>http://www.w3.org/ns/locn#</code></td></tr>
+            <tr><td><code>odrl</code></td><td><code>http://www.w3.org/ns/odrl/2/</code></td></tr>
+            <tr><td><code>owl</code></td><td><code>http://www.w3.org/2002/07/owl#</code></td></tr>
+            <tr><td><code>prov</code></td><td><code>http://www.w3.org/ns/prov#</code></td></tr>
+            <tr><td><code>rdf</code></td><td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></td></tr>
+            <tr><td><code>rdfs</code></td><td><code>http://www.w3.org/2000/01/rdf-schema#</code></td></tr>
+            <tr><td><code>skos</code></td><td><code>http://www.w3.org/2004/02/skos/core#</code></td></tr>
+            <tr><td><code>spdx</code></td><td><code>http://spdx.org/rdf/terms#</code></td></tr>
+            <tr><td><code>time</code></td><td><code>http://www.w3.org/2006/time#</code></td></tr>
+            <tr><td><code>vcard</code></td><td><code>http://www.w3.org/2006/vcard/ns#</code></td></tr>
+            <tr><td><code>xsd</code></td><td><code>http://www.w3.org/2001/XMLSchema#</code></td></tr>
+            </tbody>
+        </table>
+
+{% endblock %}
+
+{% block overview-intro %}
+{% endblock %}
