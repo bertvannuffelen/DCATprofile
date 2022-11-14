@@ -6,6 +6,33 @@
     <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
     <script class="remove">
     // All config options at https://respec.org/docs/
+
+	{% for role, contributors in contributors | groupby("role") %}
+	var myeditors = [
+	{% if role == "E" %}
+	    {% set editors = contributors|sort(attribute='last_name') %}
+	    {% if editors %}
+		{% for editor in editors %}
+		   {
+		    name: "{{ editor.firstname }} {{ editor.lastName}}",
+		      {% if editor.affiliation.website %}
+		    companyURL: "{{ editor.affiliation.website }}",
+		      {% endif %}
+		      {% if editor.affiliation.name %}
+		    company: "{{ editor.affiliation.name }}",
+		      {% endif %}
+		      {% if editor.email %}
+		    mailto: "{{ editor.email }}"
+		      {% endif %}
+		    }
+		{% if not loop.last %}, {% endif %}
+		{% endfor %}
+             {% endif %}
+		]
+        {% endif %}
+	{% endfor %}
+
+
     var respecConfig = {
       edDraftURI: "{{metadata.navigation.self}}",
       latestVersion: "{{metadata.navigation.self}}",
