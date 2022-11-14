@@ -14,7 +14,7 @@
 	    {% if editors %}
 		{% for editor in editors %}
 		   {
-		    name: "{{ editor.firstname }} {{ editor.lastName}}",
+		    name: "{{ editor.first_name }} {{ editor.last_name}}",
 		      {% if editor.affiliation.website %}
 		    companyURL: "{{ editor.affiliation.website }}",
 		      {% endif %}
@@ -37,10 +37,7 @@
       edDraftURI: "{{metadata.navigation.self}}",
       latestVersion: "{{metadata.navigation.self}}",
       specStatus: "unofficial",
-      editors: [{
-        name: "Bert Van Nuffelen",
-        url: "https://www.tenforce.com"
-      }],
+      editors: myeditors,
       github: "SEMICeu/DCAT-AP",
       shortName: "DCAT-AP",
       xref: "web-platform",
