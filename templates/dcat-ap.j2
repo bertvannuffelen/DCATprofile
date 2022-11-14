@@ -1,5 +1,4 @@
 {% extends "semic-ap_en.j2" %}
-{% extends "dcatap-legal.j2" %}
 
 {% block introduction %}
 <h3>Context</h3>
@@ -66,11 +65,10 @@ voaf: http://purl.org/vocommons/voaf#
 
 {% endblock %}
 
-{% block overview-intro %}
+{% block overviewintro %}
 {% endblock %}
 
 {% block usages %} 
-  {% block legal %}
-  {% endblock %}
+  {% include "dcatap-legal.j2" ignore missing %}
 {% endblock %}
 
