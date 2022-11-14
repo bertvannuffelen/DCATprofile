@@ -14,6 +14,31 @@
 	    {% if editors %}
 		{% for editor in editors %}
 		   {
+		    name: "{{ editor.first_name }} {G{ editor.last_name}}",
+		      {% if editor.affiliation.website %}
+		    companyURL: "{{ editor.affiliation.website }}",
+		      {% endif %}
+		      {% if editor.affiliation.name %}
+		    company: "{{ editor.affiliation.name }}",
+		      {% endif %}
+		      {% if editor.email %}
+		    mailto: "{{ editor.email }}"
+		      {% endif %}
+		    }
+		{% if not loop.last %}, {% endif %}
+		{% endfor %}
+             {% endif %}
+        {% endif %}
+	{% endfor %}
+		]
+
+	var myauthors = [
+	{% for role, contributors in contributors | groupby("role") %}
+	{% if role == "A" %}
+	    {% set editors = contributors|sort(attribute='last_name') %}
+	    {% if editors %}
+		{% for editor in editors %}
+		   {
 		    name: "{{ editor.first_name }} {{ editor.last_name}}",
 		      {% if editor.affiliation.website %}
 		    companyURL: "{{ editor.affiliation.website }}",
@@ -37,7 +62,9 @@
       edDraftURI: "{{metadata.navigation.self}}",
       latestVersion: "{{metadata.navigation.self}}",
       specStatus: "unofficial",
+      publishDate: "{{ metadata.issued }}",
       editors: myeditors,
+      authors: myauthors,
       github: "SEMICeu/DCAT-AP",
       shortName: "DCAT-AP",
       xref: "web-platform",
@@ -127,99 +154,6 @@
                         {% endif %}
                     </dl>
                 </div>
-                <div class="head" role="contentinfo" id="respecHeader">
-                    <dl>
-                        {% for role, contributors in contributors | groupby("role") %}
-                            {% if role == "A" %}
-                                {% set authors = contributors|sort(attribute='last_name') %}
-                                {% if authors %}
-                                    <dt>
-                                        Authors
-                                    </dt>
-                                    {% for author in authors %}
-                                        <dd inlist="" rel="foaf:maker" class="p-author h-card vcard">
-                                            <span typeof="foaf:Person">
-                                                <span class="p-name fn" property="foaf:lastName">{{ author.last_name }}</span>, <span class="p-name fn" property="foaf:firstName">{{ author.first_name }}</span>
-                                                {% if author.affiliation.website and author.affiliation.name %}
-                                                    - <a href="{{ author.affiliation.website }}"
-    class="p-org org h-org h-card"
-    rel="foaf:workplaceHomepage">{{ author.affiliation.name }}
-                                                </a>
-                                            {% elif author.affiliation.name %}
-                                                - <span class="p-org org h-org h-card">{{ author.affiliation.name }}</span>
-                                            {% endif %}
-                                            {% if author.email %}
-                                                -
-                                                <span class="ed_mailto">
-                                                    <a href="mailto:{{ author.email }}"
-                                                       rel="foaf:mbox"
-                                                       class="u-email email">{{ author.email }}</a>
-                                                </span>
-                                            {% endif %}
-                                        </span>
-                                    </dd>
-                                {% endfor %}
-                            {% endif %}
-                        {% elif role == "E" %}
-                            {% set editors = contributors|sort(attribute='last_name') %}
-                            {% if editors %}
-                                <dt>
-                                    Editors
-                                </dt>
-                                {% for editor in editors %}
-                                    <dd inlist="" rel="bibo:editor" class="p-author h-card vcard">
-                                        <span typeof="foaf:Person">
-                                            <span class="p-name fn" property="foaf:lastName">{{ editor.last_name }}</span>, <span class="p-name fn" property="foaf:firstName">{{ editor.first_name }}</span>
-                                            {% if editor.affiliation.website and editor.affiliation.name %}
-                                                - <a href="{{ editor.affiliation.website }}"
-    class="p-org org h-org h-card"
-    rel="foaf:workplaceHomepage">{{ editor.affiliation.name }}</a>
-                                            {% elif editor.affiliation.name %}
-                                                - <span class="p-org org h-org h-card">{{ editor.affiliation.name }}</span>
-                                            {% endif %}
-                                            {% if editor.email %}
-                                                - <span class="ed_mailto">
-                                                <a href="mailto:{{ editor.email }}"
-                                                   rel="foaf:mbox"
-                                                   class="u-email email">{{ editor.email }}</a>
-                                            </span>
-                                        {% endif %}
-                                    </span>
-                                </dd>
-                            {% endfor %}
-                        {% endif %}
-                    {% elif role == "C" %}
-                        {% set pure_contributors = contributors|sort(attribute='last_name') %}
-                        {% if pure_contributors %}
-                            <dt>
-                                Contributors
-                            </dt>
-                            {% for contributor in pure_contributors %}
-                                <dd inlist="" rel="dcterms:contributor" class="p-author h-card vcard">
-                                    <span typeof="foaf:Person">
-                                        <span class="p-name fn" property="foaf:lastName">{{ contributor.last_name }}</span>, <span class="p-name fn" property="foaf:firstName">{{ contributor.first_name }}</span>
-                                        {% if contributor.affiliation.website and contributor.affiliation.name %}
-                                            - <a href="{{ contributor.affiliation.website }}"
-    class="p-org org h-org h-card"
-    rel="foaf:workplaceHomepage">{{ contributor.affiliation.name }}</a>
-                                        {% elif contributor.affiliation.name %}
-                                            - <span class="p-org org h-org h-card">{{ contributor.affiliation.name }}</span>
-                                        {% endif %}
-                                        {% if contributor.email %}
-                                            - <span class="ed_mailto">
-                                            <a href="mailto:{{ contributor.email }}"
-                                               rel="foaf:mbox"
-                                               class="u-email email">{{ contributor.email }}</a>
-                                        </span>
-                                    {% endif %}
-                                </span>
-                            </dd>
-                        {% endfor %}
-                    {% endif %}
-                {% endif %}
-            {% endfor %}
-        </dl>
-    </div>
     <div class="head" role="metainfo" id="metainfo">
         <dl>
             <dt>
@@ -694,6 +628,31 @@
 	<p> No examples defined </p>
         {% endblock %}
     </div>
+</section>
+
+
+<section class="informative">
+
+<h2>Acknowledgments</h2>
+
+The editors gratefully acknowledge the contributions made to this document by all members of the working group.
+
+This work was elaborated by a Working Group under the ISA programme. The ISA Programme of the European Commission was represented by Suzanne Wigard, Pavlina Fragkou and Fidel Santiago. Natasa Sofou & Bert Van Nuffelen were the editors of the specification. 
+
+Contibutors: Martin Alvarez-Espinar, Oystein Asnes, Makx Dekkers, Jean Delahousse, Ine De Visser, Adina Dragan, Dietmar Gattwinkel, Stijn Goedertier, Bart Hanssens, Luis Daniel Ibáñez, Jakub Klímek, Andreas Kuckartz, Christine Laaboudi-Spoiden, Giorgia Lodi, Ludger A. Rinsche, Andrea Perego, Maxime Servais, Emidio Stani, Sebastian Sklarß, Sander Van Dooren, Bert Van Nuffelen, Suzanne Wigard.
+
+Contributors:
+{% for role, contributors in contributors | groupby("role") %}
+{% if role == "C" %}
+     {% set pure_contributors = contributors|sort(attribute='last_name') %}
+     {% if pure_contributors %}
+          {% for contributor in pure_contributors %} 
+	 	{{ contributor.first_name }} {{ contributor.last_name }}
+		{% if not loop.last %}, {% endif %}
+          {% endfor %}
+     {% endif %}
+{% endif %}
+{% endfor %}.
 </section>
 <!-- End page content -->
 </body>
