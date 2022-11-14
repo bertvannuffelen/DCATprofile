@@ -7,8 +7,8 @@
     <script class="remove">
     // All config options at https://respec.org/docs/
 
-	{% for role, contributors in contributors | groupby("role") %}
 	var myeditors = [
+	{% for role, contributors in contributors | groupby("role") %}
 	{% if role == "E" %}
 	    {% set editors = contributors|sort(attribute='last_name') %}
 	    {% if editors %}
@@ -28,9 +28,9 @@
 		{% if not loop.last %}, {% endif %}
 		{% endfor %}
              {% endif %}
-		]
         {% endif %}
 	{% endfor %}
+		]
 
 
     var respecConfig = {

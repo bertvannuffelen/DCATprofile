@@ -1,4 +1,5 @@
 Voornaam;Naam;Affiliatie;E-mail;Website;DCAT-AP;
 AuteurVoornaam;AuteurNaam;AuteurAffiliatie;auteurvoornaam.auteurnaam@auteurdomein;https://auteurwebsiteurl;A;
-Bert;Van Nuffelen;EditorAffiliatie;bert.van.nuffelen@tenforce.com;;E;
+Bert;Van Nuffelen;TenForce;bert.van.nuffelen@tenforce.com;;E;
+Pavlina;Fragkou;SEMIC EU;;;E;
 MedewerkerVoornaam;MedewerkerNaam;MedewerkerAffiliatie;medewerkervoornaam.medewerkernaam@medewerkerdomein;https://medewerkerwebsiteurl;C;
