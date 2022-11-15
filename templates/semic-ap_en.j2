@@ -666,13 +666,13 @@
 <tbody>
 {% for entity in classes | sort(attribute=sortattr) %}
 <tr><td>
-		<a href="{{ entity.name}}">{{ entity.label[language] }}</a>
+		<a href="#{{ entity.name}}">{{ entity.label[language] }}</a>
 	</td><td>
 		{{ entity.uri }}
 	</td><td>
         {% if ((entity.properties | length) > 0 ) %}
         {% for prop in entity['properties'] | sort(attribute=sortattr) %}
-	        <a href="{{ (entity.name ~ ':' ~ prop.name) | urlencode }}">{{ prop.label[language] }} </a><br/>
+	        <a href="#{{ (entity.name ~ ':' ~ prop.name) | urlencode }}">{{ prop.label[language] }} </a><br/>
         {% endfor %}
         {% endif %}
 	</td><td>
