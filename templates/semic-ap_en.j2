@@ -98,23 +98,17 @@
     <meta name="msapplication-TileColor" content="#7ED956" />
 </head>
 <body>
-    {# <div style="min-height:44px;" id="purl-header" class="header">
+    {# <div style="min-height:44px;" id="logo">
         <!-- insert your global header here -->
         <title>SEMIC DCAT-AP</title>
         <i class="logo">SEMIC</i>
         <!-- end global header-->
     </div> #}
+
     <!-- Start page content -->
-    <div class="page">
-        {#
-        <div class="layout layout--wide">
-            <div class="skiplink">
-                <a rel="nofollow noreferrer" href="#abstract">Overview</a>
-            </div>
-        </div>
-        #}
-        <section>
-            <h2 class="h1">{{ metadata.title }}</h2>
+
+<section>
+   <h2 class="h2">{{ metadata.title }}</h2>
             <div class="col--9-12 col--1-1--s">
                 <div class="head" role="status" id="status">
                     <dl>
@@ -601,6 +595,7 @@
         {% endfor %}
     </section>
 {% endif %}
+
 <section class="informative">
     <h2 aria-level="1" role="heading" id="h2_sotd">
         JSON-LD context
