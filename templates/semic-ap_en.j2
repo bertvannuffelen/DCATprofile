@@ -674,11 +674,13 @@
         {% for prop in entity['properties'] | sort(attribute=sortattr) %}
 	        <a href="{{ (entity.name ~ ':' ~ prop.name) | urlencode }}">{{ prop.label[language] }} </a><br/>
         {% endfor %}
+        {% endif %}
 	</td><td>
         {% if ((entity.properties | length) > 0 ) %}
         {% for prop in entity['properties'] | sort(attribute=sortattr) %}
 	       {{ prop.uri }}<br/>
         {% endfor %}
+        {% endif %}
 	</td></tr>
 {% endfor %}
 <tbody>	     
