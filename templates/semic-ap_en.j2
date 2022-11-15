@@ -314,9 +314,8 @@
     </div>
     {% for entity in classes | sort(attribute=sortattr) %}
         <section>
-            <h3 class="h3" id="{{ entity.name }}">
-                {# <h3 class="h3" id="{{ entity.name }}"> #}
-                <a href="{{ entity.uri }}"
+            <h3 id="{{ entity.label[language]| urlencode }}">
+                <a href="{{ entity.uri | urlencode }}"
                    data-toggle="tooltip"
                    data-content="{{ entity.uri }}"
                    data-placement="right">{{ entity.label[language] }}</a>
@@ -351,7 +350,7 @@
                     </dt>
                     {% if ((entity.properties | length) > 0 ) %}
                         <dd>
-                            For this entity the following properties are defined: {%- for prop in entity['properties'] | sort(attribute=sortattr) %} <a href="#{{ (entity.name ~ ':' ~ prop.name) | urlencode }}">{{ prop.label[language] }}</a>
+                            For this entity the following properties are defined: {%- for prop in entity['properties'] | sort(attribute=sortattr) %} <a href="#{{ (entity.label[language] ~ '.' ~ prop.label[language]) | urlencode }}">{{ prop.label[language] }}</a>
                             {% if not loop.last %},{% endif %}
                         {%- endfor %}.
                     </dd>
@@ -394,7 +393,7 @@
                     </thead>
                     <tbody class="supertype">
                         {% for prop in entity['properties'] | sort(attribute=sortattr) %}
-                            <tr id="{{ (entity.name ~ ':' ~ prop.name) | urlencode }}"
+                            <tr id="{{ (entity.label[language] ~ '.' ~ prop.label[language]) | urlencode }}"
                                 typeof="rdfs:Property"
                                 resource="{{ prop.uri }}"
                                 class="class mandatory">
@@ -462,14 +461,14 @@
             {# <div class="region region--no-space-top"> #}
             <section>
                 {% if entity.scopeduri %}
-                    <h3 class="h3" id="{{ entity.name }}">
+                    <h3 class="h3" id="{{ entity.label[language] | urlencode }}">
                         <a href="{{ entity.scopeduri }}"
                            data-toggle="tooltip"
                            data-content="{{ entity.uri }}"
                            data-placement="right">{{ entity.label[language] }}</a>
                     </h3>
                 {% else %}
-                    <h3 class="h3" id="{{ entity.name }}">
+                    <h3 class="h3" id="{{ entity.label[language] | urlencode }}">
                         <a href="{{ entity.uri }}"
                            data-toggle="tooltip"
                            data-content="{{ entity.uri }}"
@@ -507,7 +506,7 @@
                             </dt>
                             {% if ((entity.properties | length) > 0 ) %}
                                 <dd>
-			            For this datatype are the following properties defined: {%- for prop in entity['properties'] | sort(attribute=sortattr) %} <a href="#{{ (entity.name ~ ':' ~ prop.name) | urlencode }}">{{ prop.label[language] }}</a>
+			            For this datatype are the following properties defined: {%- for prop in entity['properties'] | sort(attribute=sortattr) %} <a href="#{{ (entity.label[language] ~ '.' ~ prop.label[language]) | urlencode }}">{{ prop.label[language] }}</a>
                                     {% if not loop.last %},{% endif %}
                                 {%- endfor %}.
                             </dd>
@@ -550,7 +549,7 @@
                             </thead>
                             <tbody class="supertype">
                                 {% for prop in entity['properties'] | sort(attribute=sortattr) %}
-                                    <tr id="{{ (entity.name ~ ':' ~ prop.name ) | urlencode }}"
+                                    <tr id="{{ (entity.label[language] ~ '.' ~ prop.label[language]) | urlencode }}"
                                         typeof="rdfs:Property"
                                         resource="{{ prop.uri }}"
                                         class="class mandatory">
@@ -666,13 +665,13 @@
 <tbody>
 {% for entity in classes | sort(attribute=sortattr) %}
 <tr><td>
-		<a href="#{{ entity.name | urlencode }}">{{ entity.label[language] }}</a>
+		<a href="#{{ entity.label[language] | urlencode }}">{{ entity.label[language] }}</a>
 	</td><td>
 		{{ entity.uri }}
 	</td><td>
         {% if ((entity.properties | length) > 0 ) %}
         {% for prop in entity['properties'] | sort(attribute=sortattr) %}
-	        <a href="#{{ (entity.name ~ ':' ~ prop.name) | urlencode }}">{{ prop.label[language] }} </a><br/>
+	        <a href="#{{ (entity.label[language] ~ '.' ~ prop.label[language]) | urlencode }}">{{ prop.label[language] }} </a><br/>
         {% endfor %}
         {% endif %}
 	</td><td>
