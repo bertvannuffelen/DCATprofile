@@ -656,7 +656,33 @@
 </section>
 {% endblock %} 
 
+<section class="appendix">
 
+<h2>Quick Reference of Classes and Properties</h2>
+
+
+<table id="table-quickoverview">
+<thead><tr><th>Class</th><th>Class IRI</th><th>Property</th><th>Property IRI</th></tr></thead>
+<tbody>
+{% for entity in classes | sort(attribute=sortattr) %}
+<tr><td>
+		<a href="{{ entity.name}}">{{ entity.label[language] }}</a>
+	</td><td>
+		{{ entity.uri }}
+	</td><td>
+        {% if ((entity.properties | length) > 0 ) %}
+	        <a href="{{ (entity.name ~ ':' ~ prop.name) | urlencode }}">{{ prop.label[language] }} </a>
+        {% endfor %}
+	</td><td>
+        {% if ((entity.properties | length) > 0 ) %}
+               {{ prop.uri }}
+        {% endfor %}
+	</td></tr>
+{% endfor %}
+<tbody>	     
+</table>
+
+</section>
 
 <section class="appendix">
 
