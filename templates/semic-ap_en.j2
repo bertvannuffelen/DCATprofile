@@ -269,30 +269,22 @@
     {% block overviewintro %}
     {% endblock %}
     <div id="overview">
-        <div class="grid">
-            <div class="col--9-12 col--1-1--s typography">
                 {% if ( ( classes | length > 0)   ) %}
-                    <div class="region region--no-space-top">
                         <p>
                             This document describes the usage of the following entities for a correct usage of the Application Profile:
                             <br />
-                            | {%- for class in classes |sort(attribute=sortattr) %} <a href="#{{ class.name }}">{{ class.label[language] }}</a> | {%- endfor %}
+                            | {%- for class in classes |sort(attribute=sortattr) %} <a href="#{{ class.label[language] | urlencode }}">{{ class.label[language] }}</a> | {%- endfor %}
                         </p>
-                    </div>
                 {% endif %}
                 {% if ( ( datatypes | length ) > 0 ) %}
-                    <div class="region region--no-space-top">
                         <p>
                             This document describes the usage of the following datatypes for a correct usage of the Application Profile:
                             <br />
-                            | {%- for datatype in datatypes |sort(attribute=sortattr) %} <a href="#{{ datatype.name }}">{{ datatype.label[language] }}</a> | {%- endfor %}
+                            | {%- for datatype in datatypes |sort(attribute=sortattr) %} <a href="#{{ datatype.label[language] | urlencode }}">{{ datatype.label[language] }}</a> | {%- endfor %}
                         </p>
-                    </div>
                 {% endif %}
-            </div>
-        </div>
     </div>
-    <div class="region region--no-space-top">
+    <div>
         <a href="{{ documentroot }}/html/overview.jpg"
            target="_blank">
             <img src="{{ documentroot }}/html/overview.jpg"/>
@@ -305,13 +297,6 @@
     <h2>
         Entities
     </h2>
-    <div class="region region--no-space-top">
-        {#
-        <h2 class="h2">
-            Entities
-        </h2>
-        #}
-    </div>
     {% for entity in classes | sort(attribute=sortattr) %}
         <section>
             <h3 id="{{ entity.label[language]| urlencode }}">
