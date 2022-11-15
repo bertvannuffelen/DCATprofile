@@ -671,11 +671,13 @@
 		{{ entity.uri }}
 	</td><td>
         {% if ((entity.properties | length) > 0 ) %}
-	        <a href="{{ (entity.name ~ ':' ~ prop.name) | urlencode }}">{{ prop.label[language] }} </a>
+        {% for prop in entity['properties'] | sort(attribute=sortattr) %}
+	        <a href="{{ (entity.name ~ ':' ~ prop.name) | urlencode }}">{{ prop.label[language] }} </a><br/>
         {% endfor %}
 	</td><td>
         {% if ((entity.properties | length) > 0 ) %}
-               {{ prop.uri }}
+        {% for prop in entity['properties'] | sort(attribute=sortattr) %}
+	       {{ prop.uri }}<br/>
         {% endfor %}
 	</td></tr>
 {% endfor %}
