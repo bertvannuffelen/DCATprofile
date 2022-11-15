@@ -199,12 +199,14 @@
 
 <section id="abstract">
     {% block summary %}
+    <h2>Summary</h2>
         {% if metadata.description %}{{ metadata.description[language] }}{% endif %}
     {% endblock %}
 </section>
 
 <section id="specstatus">
     {% block status %}
+    <h2>Status</h2>
         <p>
             This application profile has the status <a href="{{ metadata.status }}">{{ metadata.statuslabel }}</a> publised at {{ metadata.issued }}.
         </p>
