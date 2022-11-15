@@ -300,7 +300,7 @@
     {% for entity in classes | sort(attribute=sortattr) %}
         <section>
             <h3 id="{{ entity.label[language]| urlencode }}">
-                <a href="{{ entity.uri | urlencode }}"
+                <a href="{{ entity.uri }}"
                    data-toggle="tooltip"
                    data-content="{{ entity.uri }}"
                    data-placement="right">{{ entity.label[language] }}</a>
@@ -435,15 +435,7 @@
         <h2>
             Datatypes
         </h2>
-        <div class="region region--no-space-top">
-            {#
-            <h2 class="h2">
-                Datatypes
-            </h2>
-            #}
-        </div>
         {% for entity in datatypes | sort(attribute=sortattr)%}
-            {# <div class="region region--no-space-top"> #}
             <section>
                 {% if entity.scopeduri %}
                     <h3 class="h3" id="{{ entity.label[language] | urlencode }}">
@@ -513,22 +505,22 @@
                                     <th class="data-table__header-title--sortable">
                                     </th>
                                     <th class="data-table__header-title--sortable data-table__header-title--sortable-active">
-                                        Eigenschap
+                                        Property
                                     </th>
                                     <th class="data-table__header-title--sortable">
-                                        Verwacht Type
+                                        Expected Range
                                     </th>
                                     <th class="data-table__header-title--sortable">
-                                        Kardinaliteit
+                                        Cardinality
                                     </th>
                                     <th class="data-table__header-title--sortable">
-                                        Beschrijving
+                                        Definition
                                     </th>
                                     <th class="data-table__header-title--sortable">
-                                        Gebruik
+                                        Usage Note
                                     </th>
                                     <th class="data-table__header-title--sortable">
-                                        Codelijst
+                                        Codelist
                                     </th>
                                 </tr>
                             </thead>
