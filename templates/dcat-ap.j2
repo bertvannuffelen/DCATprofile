@@ -2,15 +2,27 @@
 
 {% block introduction %}
 <h3>Context</h3>
+<p>
 This document has been prepared in the context of Action 1.1 – Improving semantic interoperability in European eGovernment systems  of the European Commission’s Interoperability Solutions for European Public Administrations (ISA) programme .
+</p><p>
 Studies conducted on behalf of the European Commission  show that businesses and citizens still face difficulties in finding and re-using public sector information. In its communication on Open Data  of 12 December 2011, the European Commission states that the availability of the information in a machine-readable format as well as a thin layer of commonly agreed metadata could facilitate data cross-reference and interoperability and therefore considerably enhance its value for reuse.
+</p><p>
 Much of the public sector information that would benefit from interoperability is published as datasets in data portals. Therefore, an agreement on a common format for data exchange would support the sharing, discovery and re-use of this data.
+</p><p>
 This document is the result of the major semantic change release process described in the Change and Release Management Policy for DCAT-AP  and was built starting from DCAT-AP version 1.2.1 . 
+</p>
+
 <h3>Scope of the revision</h3>
+<p>
 The objective of this work is to produce an updated release of the DCAT Application Profile based on numerous requests for change coming from real-world implementations of the specification listed on github since the previous release.  
+</p><p>
 The Application Profile specified in this document is based on the specification of the Data Catalog Vocabulary (DCAT) developed under the responsibility of the Government Linked Data Working Group  at W3C. DCAT is an RDF  vocabulary designed to facilitate interoperability between data catalogues published on the Web. Additional classes and properties from other well-known vocabularies are re-used where necessary.:q
+</p><p>
 The work does not cover implementation issues like mechanisms for exchange of data and expected behaviour of systems implementing the Application Profile other than what is defined in the Conformance Statement in section 6.
+</p><p>
 The Application Profile is intended to facilitate data exchange and therefore the classes and properties defined in this document are only relevant for the data to be exchanged; there are no requirements for communicating systems to implement specific technical environments. The only requirement is that the systems can export and import data in RDF in conformance with this Application Profile.
+</p>
+
 <h3>The DCAT specification</h3>
 The DCAT Application Profile defined in this document is based on the specification of the Data Catalog Vocabulary (DCAT) of 16 January 2014 , and the Data Catalog Vocabulary (DCAT) - Version 2, W3C Recommendation 04 February 2020 .
 {% endblock %}
@@ -20,9 +32,11 @@ The DCAT Application Profile defined in this document is based on the specificat
 {% block terminology %}
 <section id="specterminology">
     <h2>Terminology</h2>
-An Application Profile is a specification that re-uses terms from one or more base standards, adding more specificity by identifying mandatory, recommended and optional elements to be used for a particular application, as well as recommendations for controlled vocabularies to be used.
-A Dataset is a collection of data, published or curated by a single source, and available for access or download in one or more formats.
-A Data Portal is a Web-based system that contains a data catalogue with descriptions of datasets and provides services enabling discovery and re-use of the datasets.
+<p>
+An <strong>Application Profile</strong> is a specification that re-uses terms from one or more base standards, adding more specificity by identifying mandatory, recommended and optional elements to be used for a particular application, as well as recommendations for controlled vocabularies to be used.
+</p><p>
+A <strong>Dataset</strong> is a collection of data, published or curated by a single source, and available for access or download in one or more formats.
+A <strong>Data Portal</strong> is a Web-based system that contains a data catalogue with descriptions of datasets and provides services enabling discovery and re-use of the datasets.
 In the following sections, classes and properties are grouped under headings ‘mandatory’, ‘recommended’ and ‘optional’. These terms have the following meaning.
 <ul>
 <li>Mandatory property: a receiver MUST be able to process the information for that property; a sender MUST provide the information for that property.</li>
