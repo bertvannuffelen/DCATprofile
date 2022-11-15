@@ -661,12 +661,12 @@
 <h2>Quick Reference of Classes and Properties</h2>
 
 
-<table id="table-quickoverview">
+<table id="table-quickoverview" class="simple">
 <thead><tr><th>Class</th><th>Class IRI</th><th>Property</th><th>Property IRI</th></tr></thead>
 <tbody>
 {% for entity in classes | sort(attribute=sortattr) %}
 <tr><td>
-		<a href="#{{ entity.name}}">{{ entity.label[language] }}</a>
+		<a href="#{{ entity.name | urlencode }}">{{ entity.label[language] }}</a>
 	</td><td>
 		{{ entity.uri }}
 	</td><td>
