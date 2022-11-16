@@ -415,12 +415,12 @@
                                 <td>
                                     {% for range in prop.scopedrange %}
                                         {% if range['range_uri'] == range['range_puri'] %}
-                                            <a href="{{ range['range_label'][language] | urlencode }}"
+                                            <a href="#{{ range['range_label'][language] | urlencode }}"
                                                data-toggle="tooltip"
                                                data-content="{{ range['range_puri'] }}"
                                                data-placement="right">{{ range['range_label'][language] }}</a>
                                         {% else %}
-                                            <a href="{{ range['range_label'][language] | urlencode }}" data-placement="right">{{ range['range_label'][language] }}</a>
+                                            <a href="#{{ range['range_label'][language] | urlencode }}" data-placement="right">{{ range['range_label'][language] }}</a>
                                         {% endif %}
                                     {% endfor %}
                                 </td>
@@ -562,12 +562,12 @@
                                         <td>
                                             {% for range in prop.scopedrange %}
 					    	{% if range['range_uri'] == range['range_puri'] %}
-						    <a href="{{ range['range_label'][language] | urlencode }}"
+						    <a href="#{{ range['range_label'][language] | urlencode }}"
 						       data-toggle="tooltip"
 						       data-content="{{ range['range_puri'] }}"
 						       data-placement="right">{{ range['range_label'][language] }}</a>
 						{% else %}
-						    <a href="{{ range['range_label'][language] | urlencode }}" data-placement="right">{{ range['range_label'][language] }}</a>
+						    <a href="#{{ range['range_label'][language] | urlencode }}" data-placement="right">{{ range['range_label'][language] }}</a>
 					     	{% endif %}
                                             {% endfor %}
                                         </td>
