@@ -1,6 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> {% set language = "en" %} {% set sortattr = "sort" %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+{% set language = "en" %} {% set sortattr = "sort" %}
+
+{#
+{% macro shorturl( url ) %}
+{% set prefix=(dct='http://purl.org/dc/terms/') %}
+{% set nscycler = cycler('r/^http:\//purl.org/dc/terms/') %}
+{% set prefcycler = cycler('dct') %}
+
+{% for i in range(1,1) -%} 
+{% if reg %}
+{% endfor %}
+{{ url }}
+{% endmacro%}
+#}
+
 <head>
     {% set name = metadata.title|lower|replace(' ', '-') %}
+	
     <meta charset="utf-8" />
     <title>{{ metadata.title }}</title>
     <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
@@ -399,12 +415,12 @@
                                 <td>
                                     {% for range in prop.scopedrange %}
                                         {% if range['range_uri'] == range['range_puri'] %}
-                                            <a href="{{ range['range_uri'] }}"
+                                            <a href="{{ range['range_label'][language] | urlencode }}"
                                                data-toggle="tooltip"
                                                data-content="{{ range['range_puri'] }}"
                                                data-placement="right">{{ range['range_label'][language] }}</a>
                                         {% else %}
-                                            <a href="{{ range['range_uri'] }}" data-placement="right">{{ range['range_label'][language] }}</a>
+                                            <a href="{{ range['range_label'][language] | urlencode }}" data-placement="right">{{ range['range_label'][language] }}</a>
                                         {% endif %}
                                     {% endfor %}
                                 </td>
@@ -545,14 +561,14 @@
                                         </td>
                                         <td>
                                             {% for range in prop.scopedrange %}
-                                                {% if range['range_uri'] == range['range_puri'] %}
-                                                    <a href="{{ range['range_uri'] }}"
-                                                       data-toggle="tooltip"
-                                                       data-content="{{ range['range_puri'] }}"
-                                                       data-placement="right">{{ range['range_label'][language] }}</a>
-                                                {% else %}
-                                                    <a href="{{ range['range_uri'] }}" data-placement="right">{{ range['range_label'][language] }}</a>
-                                                {% endif %}
+					    	{% if range['range_uri'] == range['range_puri'] %}
+						    <a href="{{ range['range_label'][language] | urlencode }}"
+						       data-toggle="tooltip"
+						       data-content="{{ range['range_puri'] }}"
+						       data-placement="right">{{ range['range_label'][language] }}</a>
+						{% else %}
+						    <a href="{{ range['range_label'][language] | urlencode }}" data-placement="right">{{ range['range_label'][language] }}</a>
+					     	{% endif %}
                                             {% endfor %}
                                         </td>
                                         <td>
